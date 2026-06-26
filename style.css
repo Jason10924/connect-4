@@ -44,7 +44,7 @@ body {
 .settings-button {
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     width: 44px;
     height: 44px;
     display: grid;
@@ -144,6 +144,27 @@ body {
     color: #f5f5ff;
 }
 
+.music-select {
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: #fffef5;
+    color: #111827;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.music-select option {
+    color: #111827;
+    background: #fffef5;
+}
+
+.music-select:focus {
+    outline: 2px solid #ffe66d;
+    outline-offset: 1px;
+}
+
 .theme-buttons {
     display: flex;
     gap: 10px;
@@ -229,6 +250,12 @@ body.dark-mode .settings-close {
 
 body.dark-mode .settings-close:hover {
     background: rgba(255,255,255,0.14);
+}
+
+body.dark-mode .music-select {
+    background: rgba(255,255,255,0.08);
+    color: #f8fafc;
+    border-color: rgba(255,255,255,0.16);
 }
 
 .menu {
@@ -426,4 +453,120 @@ body.dark-mode .settings-close:hover {
     100% {
         transform: translate(-50%, -50%) scale(1);
     }
+}
+
+/* Yellow Music Button */
+
+#musicBtn{
+    position:fixed;
+    top:20px;
+    right:20px;
+
+    width:60px;
+    height:60px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#FFD700;
+
+    color:white;
+    font-size:32px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+#musicBtn:hover{
+
+    transform:scale(1.1);
+    background:#FFC400;
+
+}
+
+/* Menu */
+
+#musicMenu{
+
+    position:fixed;
+
+    top:90px;
+    right:20px;
+
+    width:260px;
+
+    background:#222;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    color:white;
+
+    box-shadow:0 0 20px rgba(0,0,0,.5);
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+.song{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:8px 0;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#444;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+.song:hover{
+
+    background:#666;
+
+}
+
+#stopMusic{
+
+    width:100%;
+
+    margin-top:12px;
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#d32f2f;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+#musicBtn{
+    z-index:9999;
+}
+
+#musicMenu{
+    z-index:9999;
 }

@@ -23,10 +23,6 @@
                     <label>Difficulty</label>
                     <div>Use the panel in-game to change difficulty.</div>
                 </div>
-                <div class="settings-item">
-                    <label>Sound</label>
-                    <div>Off</div>
-                </div>
                 <div class="settings-item theme-options">
                     <label>Theme</label>
                     <div class="theme-buttons">
@@ -111,6 +107,33 @@
         <div class="cell"></div>
         <div class="cell"></div>
     </div>
+    <!-- Music Button -->
+<button id="musicBtn">♪</button>
+
+<!-- Music Menu -->
+<div id="musicMenu" class="hidden">
+
+    <h2>🎵 Music</h2>
+
+    <button class="song" data-song="music/LucysSong.mp3">
+        Lucy's Song
+    </button>
+
+    <button class="song" data-song="music/Embrace.mp3">
+        Embrace
+    </button>
+
+    <button class="song" data-song="music/WayHome.mp3">
+        Way Home
+    </button>
+
+    <button id="stopMusic">Stop Music</button>
+
+</div>
+
+<audio id="bgMusic" loop></audio>
+
     <script src="script.js"></script>
 </body>
 </html>
+

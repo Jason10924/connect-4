@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const cells = Array.from(document.querySelectorAll('.cell'));
     const boardEl = document.querySelector('.board');
@@ -369,6 +370,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     settingsBtn.addEventListener('click', () => {
         settingsPanel.classList.add('visible');
+        if (musicSelect) {
+            setMusicTrack(musicSelect.value);
+        }
     });
 
     settingsClose.addEventListener('click', () => {
@@ -436,4 +440,42 @@ document.addEventListener('DOMContentLoaded', () => {
     // initialize theme and board in a passive state so the menu shows first
     initTheme();
     initBoard();
+});
+
+const musicBtn = document.getElementById("musicBtn");
+const musicMenu = document.getElementById("musicMenu");
+const bgMusic = document.getElementById("bgMusic");
+const stopMusic = document.getElementById("stopMusic");
+
+// Open/Close menu
+musicBtn.addEventListener("click", () => {
+    musicMenu.classList.toggle("hidden");
+});
+
+// Play selected song
+document.querySelectorAll(".song").forEach(song => {
+
+    song.addEventListener("click", () => {
+
+        const selectedSong = song.getAttribute("data-song");
+
+        // Don't restart if the same song is already playing
+        if (!bgMusic.src.endsWith(selectedSong)) {
+            bgMusic.src = selectedSong;
+        }
+
+        bgMusic.play();
+
+        musicMenu.classList.add("hidden");
+
+    });
+
+});
+
+// Stop music
+stopMusic.addEventListener("click", () => {
+
+    bgMusic.pause();
+    bgMusic.currentTime = 0;
+
 });
