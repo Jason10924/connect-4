@@ -570,3 +570,52 @@ body.dark-mode .music-select {
 #musicMenu{
     z-index:9999;
 }
+
+.music-option{
+
+    width:100%;
+    padding:10px;
+
+    margin-top:10px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#ffe66d;
+
+    color:black;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.music-option:hover{
+
+    background:#ffd43b;
+    transform:scale(1.02);
+
+}
+
+.music-stop{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#d32f2f;
+
+    color:white;
+
+    cursor:pointer;
+
+}

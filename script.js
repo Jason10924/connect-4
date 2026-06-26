@@ -368,12 +368,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateStatus('Player 1 goes first. Choose a column.');
     });
 
-    settingsBtn.addEventListener('click', () => {
-        settingsPanel.classList.add('visible');
-        if (musicSelect) {
-            setMusicTrack(musicSelect.value);
-        }
-    });
+  settingsBtn.addEventListener('click', () => {
+    settingsPanel.classList.add('visible');
+});
 
     settingsClose.addEventListener('click', () => {
         settingsPanel.classList.remove('visible');
@@ -442,38 +439,24 @@ document.addEventListener('DOMContentLoaded', () => {
     initBoard();
 });
 
-const musicBtn = document.getElementById("musicBtn");
-const musicMenu = document.getElementById("musicMenu");
 const bgMusic = document.getElementById("bgMusic");
-const stopMusic = document.getElementById("stopMusic");
 
-// Open/Close menu
-musicBtn.addEventListener("click", () => {
-    musicMenu.classList.toggle("hidden");
-});
+document.querySelectorAll(".music-option").forEach(button => {
 
-// Play selected song
-document.querySelectorAll(".song").forEach(song => {
+    button.addEventListener("click", () => {
 
-    song.addEventListener("click", () => {
+        const song = button.dataset.song;
 
-        const selectedSong = song.getAttribute("data-song");
-
-        // Don't restart if the same song is already playing
-        if (!bgMusic.src.endsWith(selectedSong)) {
-            bgMusic.src = selectedSong;
-        }
+        bgMusic.src = song;
+        bgMusic.volume = 0.35;
 
         bgMusic.play();
-
-        musicMenu.classList.add("hidden");
 
     });
 
 });
 
-// Stop music
-stopMusic.addEventListener("click", () => {
+document.getElementById("stopMusic").addEventListener("click", () => {
 
     bgMusic.pause();
     bgMusic.currentTime = 0;

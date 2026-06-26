@@ -7,47 +7,121 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="title"><span class="title-main">Connect</span> <span class="title-number">4</span></h1>
+
+    <h1 class="title">
+        <span class="title-main">Connect</span>
+        <span class="title-number">4</span>
+    </h1>
+
     <button id="settings-button" class="settings-button" aria-label="Open settings">
         ⚙
     </button>
 
     <div id="settings-panel" class="settings-panel">
         <div class="settings-panel-content">
+
             <div class="settings-panel-header">
                 <h2>Settings</h2>
                 <button id="settings-close" class="settings-close">×</button>
             </div>
+
             <div class="settings-panel-body">
+
+                <!-- Difficulty -->
                 <div class="settings-item">
                     <label>Difficulty</label>
                     <div>Use the panel in-game to change difficulty.</div>
                 </div>
+
+                <!-- Theme -->
                 <div class="settings-item theme-options">
                     <label>Theme</label>
+
                     <div class="theme-buttons">
-                        <button type="button" data-theme="classic" class="theme-button active">Classic</button>
-                        <button type="button" data-theme="dark" class="theme-button">Dark Mode</button>
+                        <button
+                            type="button"
+                            data-theme="classic"
+                            class="theme-button active">
+                            Classic
+                        </button>
+
+                        <button
+                            type="button"
+                            data-theme="dark"
+                            class="theme-button">
+                            Dark Mode
+                        </button>
                     </div>
                 </div>
+
+                <!-- MUSIC -->
+                <div class="settings-item">
+
+                    <label>🎵 Background Music</label>
+
+                    <button
+                        class="music-option"
+                        data-song="music/LucysSong.mp3">
+                        Lucy's Song
+                    </button>
+
+                    <button
+                        class="music-option"
+                        data-song="music/Embrace.mp3">
+                        Embrace
+                    </button>
+
+                    <button
+                        class="music-option"
+                        data-song="music/WayHome.mp3">
+                        Way Home
+                    </button>
+
+                    <button
+                        id="stopMusic"
+                        class="music-stop">
+                        Stop Music
+                    </button>
+
+                </div>
+
             </div>
+
         </div>
     </div>
 
+    <!-- Hidden audio player -->
+    <audio id="bgMusic" loop></audio>
+
     <div class="menu-panel">
         <div class="menu">
-            <button id="play-bot" class="menu-button">Play Against Bot</button>
-            <button id="play-friend" class="menu-button">Play Against Friend</button>
+            <button id="play-bot" class="menu-button">
+                Play Against Bot
+            </button>
+
+            <button id="play-friend" class="menu-button">
+                Play Against Friend
+            </button>
         </div>
     </div>
 
     <div id="controls" class="controls" style="display:none;">
+
         <div class="scoreboard">
-            <div class="score-item">Player 1: <span id="score-p1">0</span></div>
-            <div class="score-item" id="score-p2-label">Player 2: <span id="score-p2">0</span></div>
+            <div class="score-item">
+                Player 1:
+                <span id="score-p1">0</span>
+            </div>
+
+            <div class="score-item" id="score-p2-label">
+                Player 2:
+                <span id="score-p2">0</span>
+            </div>
         </div>
+
         <div id="difficulty-container" class="difficulty" style="display:none;">
             <label for="difficulty">Difficulty:</label>
+
             <select id="difficulty">
                 <option value="easy">Easy</option>
                 <option value="medium" selected>Medium</option>
@@ -55,85 +129,39 @@
                 <option value="impossible">Impossible</option>
             </select>
         </div>
-        <div class="game-status" id="game-status">Choose a column to start.</div>
-        <div class="controls-buttons">
-            <button id="play-again" class="menu-button">Restart</button>
-            <button id="back-menu" class="menu-button">Back to Menu</button>
+
+        <div id="game-status" class="game-status">
+            Choose a column to start.
         </div>
+
+        <div class="controls-buttons">
+            <button id="play-again" class="menu-button">
+                Restart
+            </button>
+
+            <button id="back-menu" class="menu-button">
+                Back to Menu
+            </button>
+        </div>
+
     </div>
 
     <div class="board" aria-label="Connect 4 board">
+
         <div id="board-message" class="board-message"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+
+        <!-- 42 board cells -->
+
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
     </div>
-    <!-- Music Button -->
-<button id="musicBtn">♪</button>
-
-<!-- Music Menu -->
-<div id="musicMenu" class="hidden">
-
-    <h2>🎵 Music</h2>
-
-    <button class="song" data-song="music/LucysSong.mp3">
-        Lucy's Song
-    </button>
-
-    <button class="song" data-song="music/Embrace.mp3">
-        Embrace
-    </button>
-
-    <button class="song" data-song="music/WayHome.mp3">
-        Way Home
-    </button>
-
-    <button id="stopMusic">Stop Music</button>
-
-</div>
-
-<audio id="bgMusic" loop></audio>
 
     <script src="script.js"></script>
+
 </body>
 </html>
-
